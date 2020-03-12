@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SyncfusionPractice.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:conv="clr-namespace:SyncfusionPractice.Converters"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:gauge="clr-namespace:Syncfusion.SfGauge.XForms;assembly=Syncfusion.SfGauge.XForms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pgbar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms"
+    mc:Ignorable="d">
+
+    <StackLayout>
+        <Button Clicked="Button_Clicked" Text="Gauge" />
+        <Button Clicked="Button_Clicked_1" Text="TabView" />
+    </StackLayout>
+</ContentPage>

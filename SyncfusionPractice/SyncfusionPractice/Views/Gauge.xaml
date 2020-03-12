@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SyncfusionPractice.Views.Gauge"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:conv="clr-namespace:SyncfusionPractice.Converters"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:gauge="clr-namespace:Syncfusion.SfGauge.XForms;assembly=Syncfusion.SfGauge.XForms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pgbar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms"
+    mc:Ignorable="d">
+
+    <ScrollView>
+        <StackLayout>
+            <!--  Place new controls here  -->
+            <Label HorizontalOptions="Center" Text="Welcome to Xamarin.Forms!" />
+
+            <gauge:SfCircularGauge>
+                <gauge:SfCircularGauge.Headers>
+                    <gauge:Header
+                        ForegroundColor="Black"
+                        Text="Speedometer"
+                        TextSize="20" />
+                </gauge:SfCircularGauge.Headers>
+                <gauge:SfCircularGauge.Scales>
+                    <gauge:Scale>
+                        <gauge:Scale.Ranges>
+                            <gauge:Range EndValue="{Binding Source={x:Reference slider}, Path=Value}" StartValue="0" />
+                        </gauge:Scale.Ranges>
+                        <gauge:Scale.Pointers>
+                            <gauge:NeedlePointer Value="{Binding Source={x:Reference slider}, Path=Value}" />
+                            <gauge:RangePointer Value="50" />
+                            <gauge:MarkerPointer Value="{Binding Source={x:Reference slider}, Path=Value}" />
+                        </gauge:Scale.Pointers>
+                    </gauge:Scale>
+                </gauge:SfCircularGauge.Scales>
+            </gauge:SfCircularGauge>
+
+            <Slider
+                x:Name="slider"
+                Maximum="100"
+                Minimum="0"
+                Value="50" />
+
+            <gauge:SfCircularGauge>
+                <gauge:SfCircularGauge.Scales>
+                    <gauge:Scale
+                        EndValue="100"
+                        Interval="5"
+                        MinorTicksPerInterval="0"
+                        RimColor="Pink"
+                        RimThickness="10"
+                        ScaleEndOffset="0.4"
+                        ScaleStartOffset="0.5"
+                        ShowLabels="False"
+                        ShowRim="True"
+                        ShowTicks="False"
+                        StartAngle="90"
+                        StartValue="0"
+                        SweepAngle="360">
+
+                        <gauge:Scale.Pointers>
+                            <gauge:RangePointer
+                                Thickness="10"
+                                Color="LightBlue"
+                                Value="{Binding Source={x:Reference slider}, Path=Value}">
+                                <gauge:RangePointer.StartOffset>
+                                    <OnPlatform
+                                        x:TypeArguments="x:Double"
+                                        Android="0.5"
+                                        WinPhone="1"
+                                        iOS="0.5" />
+                                </gauge:RangePointer.StartOffset>
+                                <gauge:RangePointer.EndOffset>
+                                    <OnPlatform
+                                        x:TypeArguments="x:Double"
+                                        Android="0.4"
+                                        WinPhone="0.9"
+                                        iOS="0.4" />
+                                </gauge:RangePointer.EndOffset>
+                            </gauge:RangePointer>
+                        </gauge:Scale.Pointers>
+
+                    </gauge:Scale>
+
+                </gauge:SfCircularGauge.Scales>
+                <gauge:SfCircularGauge.Headers>
+                    <gauge:Header
+                        ForegroundColor="Gray"
+                        Position="0.3,0.2"
+                        Text="Share Holders">
+                        <gauge:Header.TextSize>
+                            <OnPlatform
+                                x:TypeArguments="x:Double"
+                                Android="16"
+                                WinPhone="25"
+                                iOS="16" />
+                        </gauge:Header.TextSize>
+                    </gauge:Header>
+                    <gauge:Header
+                        ForegroundColor="Gray"
+                        Position="0.5,0.5"
+                        Text="{Binding Source={x:Reference slider}, Path=Value, Converter={conv:PercentageDisplayConverter}}">
+                        <gauge:Header.TextSize>
+                            <OnPlatform
+                                x:TypeArguments="x:Double"
+                                Android="16"
+                                WinPhone="25"
+                                iOS="16" />
+                        </gauge:Header.TextSize>
+                    </gauge:Header>
+                </gauge:SfCircularGauge.Headers>
+            </gauge:SfCircularGauge>
+
+            <pgbar:SfCircularProgressBar GapWidth="20" Progress="{Binding Source={x:Reference slider}, Path=Value}" />
+            <Label HorizontalOptions="Center" Text="{Binding Source={x:Reference slider}, Path=Value}" />
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

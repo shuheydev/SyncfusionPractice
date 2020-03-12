@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SyncfusionPractice.Views.TabView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tabview="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+    xmlns:views="clr-namespace:SyncfusionPractice.Views"
+    mc:Ignorable="d">
+
+    <tabview:SfTabView>
+        <tabview:SfTabView.Items>
+            <tabview:SfTabItem Title="Item1" >
+                <tabview:SfTabItem.Content>
+                    <views:ContentView1 />
+                </tabview:SfTabItem.Content>
+            </tabview:SfTabItem>
+            <tabview:SfTabItem Title="Item2" />
+            <tabview:SfTabItem Title="Item3" />
+        </tabview:SfTabView.Items>
+    </tabview:SfTabView>
+</ContentPage>
